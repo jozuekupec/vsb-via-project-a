@@ -1,0 +1,101 @@
+:root {
+  --spacingContainerPadding: .5rem;
+  --spacingInputPadding: .5rem;
+  --colorSuccess: #148114;
+  --colorSuccessBg: #70c570;
+  --colorError: #c71717;
+  --colorErrorBg: #fbd2d2;
+  --inputBorderRadius: .25rem;
+}
+
+.Form {
+  display: flex;
+  padding: var(--spacingContainerPadding);
+}
+.Form form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+}
+.Form button {
+  display: inline-flex;
+  width: max-content;
+}
+
+.FormElement {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.FormElement .errors {
+  display: none;
+  flex-direction: column;
+  padding: var(--spacingContainerPadding);
+  margin-top: 0.25rem;
+  background-color: var(--colorErrorBg);
+  border: 1px solid var(--colorError);
+  border-radius: var(--inputBorderRadius);
+}
+.FormElement .errors p {
+  color: var(--colorError);
+  margin: 0.2rem;
+  opacity: 7;
+}
+.FormElement-innerContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.FormElement-innerContainer:after {
+  display: none;
+  position: absolute;
+  right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+.FormElement-innerContainer input {
+  width: 100%;
+  height: 100%;
+  padding: var(--spacingInputPadding);
+  border-radius: var(--inputBorderRadius);
+  outline: unset;
+  border-style: groove;
+}
+.FormElement.invalid .FormElement-innerContainer:after {
+  display: block;
+  font: var(--fa-font-solid);
+  content: "\f057";
+  color: var(--colorError);
+}
+.FormElement.invalid .FormElement-innerContainer input {
+  border-color: var(--colorError);
+}
+.FormElement.invalid label {
+  color: var(--colorError);
+}
+.FormElement.invalid .errors {
+  display: flex;
+}
+.FormElement.valid .FormElement-innerContainer:after {
+  display: block;
+  font: var(--fa-font-regular);
+  content: "\f058";
+  color: var(--colorSuccess);
+}
+.FormElement.valid .FormElement-innerContainer input {
+  border-color: var(--colorSuccess);
+}
+.FormElement.valid label {
+  color: var(--colorSuccess);
+}
+.FormElement label {
+  margin-bottom: 0.25rem;
+}
+
+.WeatherHistory {
+  width: 50rem;
+  height: 50rem;
+}
+
+/*# sourceMappingURL=styles.css.map */
