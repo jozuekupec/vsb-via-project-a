@@ -125,7 +125,7 @@ class App {
         let errors = {};
 
         latitude = this.validateNumberElement(this._inputs[this._latitudeInputName], true);
-        if (typeof latitude === "number") {
+        if (typeof latitude === "number" && this.isInRange(latitude, -90, 90)) {
             this.setValidityState(this._inputs[this._latitudeInputName], true);
         } else {
             errors[this._latitudeInputName] = [];
@@ -133,6 +133,8 @@ class App {
                 errors[this._latitudeInputName].push("The field is required!");
             } else if (latitude === false) {
                 errors[this._latitudeInputName].push("Not a number!");
+            } else {
+                errors[this._latitudeInputName].push("Out of range <-90, 90>!");
             }
 
             validForm = false;
@@ -141,7 +143,7 @@ class App {
         }
 
         longitude = this.validateNumberElement(this._inputs[this._longitudeInputName], true);
-        if (typeof longitude === "number") {
+        if (typeof longitude === "number" && this.isInRange(longitude, -180, 180)) {
             this.setValidityState(this._inputs[this._longitudeInputName], true);
         } else {
             errors[this._longitudeInputName] = [];
@@ -149,6 +151,8 @@ class App {
                 errors[this._longitudeInputName].push("The field is required!");
             } else if (longitude === false) {
                 errors[this._longitudeInputName].push("Not a number!");
+            } else {
+                errors[this._longitudeInputName].push("Out of range <-180, 180>!");
             }
 
             validForm = false;
@@ -180,6 +184,16 @@ class App {
         }
 
         return result;
+    }
+
+    /**
+     * @param value
+     * @param {number} min
+     * @param {number} max
+     * @return {boolean}
+     */
+    isInRange(value, min, max) {
+        return value >= min && value <= max;
     }
 
     /**
