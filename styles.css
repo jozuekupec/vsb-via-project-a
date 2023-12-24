@@ -1,11 +1,38 @@
 :root {
   --spacingContainerPadding: .5rem;
+  --spacingContainerGap: 1rem;
   --spacingInputPadding: .5rem;
+  --spacingFrameOffsetPadding: 2rem;
+  --colorPrimary: rgb(26, 0, 0);
+  --colorSecondary: #b1d8ff;
   --colorSuccess: #148114;
   --colorSuccessBg: #70c570;
   --colorError: #c71717;
   --colorErrorBg: #fbd2d2;
   --inputBorderRadius: .25rem;
+  --sizeContentFrameWidth: 90rem;
+}
+
+body {
+  margin: 0;
+}
+
+.Header {
+  display: flex;
+  background-color: var(--colorSecondary);
+}
+.Header-frame {
+  width: var(--sizeContentFrameWidth);
+  margin-inline: auto;
+  padding-inline: var(--spacingFrameOffsetPadding);
+}
+
+.Frame {
+  width: var(--sizeContentFrameWidth);
+  margin-inline: auto;
+  padding-inline: var(--spacingFrameOffsetPadding);
+  padding-block-start: var(--spacingFrameOffsetPadding);
+  padding-block-end: calc(var(--spacingFrameOffsetPadding) * 2);
 }
 
 .Form {
@@ -91,11 +118,26 @@
 }
 .FormElement label {
   margin-bottom: 0.25rem;
+  font-weight: bold;
 }
 
 .WeatherHistory {
-  width: 50rem;
-  height: 50rem;
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--spacingContainerGap);
+}
+.WeatherHistory-chart {
+  height: 30rem;
+}
+.WeatherHistory-chart canvas {
+  width: 100%;
+  height: 100%;
+}
+.WeatherHistory-location h2 {
+  margin-bottom: 0.5rem;
+}
+.WeatherHistory-location h5, .WeatherHistory-location h6 {
+  margin: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
