@@ -7,45 +7,47 @@
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
 </head>
 <body>
-<div class="">
-    <div class="CurrentWeather">
-        //
+<header class="Header">
+    <div class="Header-frame">
+        <h1>Počasíčko</h1>
     </div>
-    <div></div>
-    <div class="Form">
-        <form method="post" id="weather-form">
-            <div class="FormElement">
-                <label for="latitude">Latitude</label>
-                <div class="FormElement-innerContainer">
-                    <input type="text" name="latitude" id="latitude">
+</header>
+<main class="Frame">
+    <section>
+        <h2>Historie počasí</h2>
+        <div class="Form">
+            <form method="post" id="weather-form">
+                <div class="FormElement">
+                    <label for="latitude">Latitude</label>
+                    <div class="FormElement-innerContainer">
+                        <input type="text" name="latitude" id="latitude">
+                    </div>
+                    <div class="errors"></div>
                 </div>
-                <div class="errors"></div>
-            </div>
 
-            <div class="FormElement">
-                <label for="longitude">Longitude</label>
-                <div class="FormElement-innerContainer">
-                    <input type="text" name="longitude" id="longitude">
+                <div class="FormElement">
+                    <label for="longitude">Longitude</label>
+                    <div class="FormElement-innerContainer">
+                        <input type="text" name="longitude" id="longitude">
+                    </div>
+                    <div class="errors"></div>
                 </div>
-                <div class="errors">
-                    <p>Hláška 1</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ultrices lectus quis
-                        semper. Proin ornare, libero id pulvinar lacinia, mauris justo tempus dolor, non ultricies odio
-                        velit eget nunc. Fusce tristique, justo et condimentum tristique, mi libero pulvinar risus, id
-                        interdum justo ante in massa. Mauris scelerisque vel tellus vitae pellentesque. Curabitur
-                        lobortis arcu quis tortor consectetur, a consectetur tortor ultricies. Sed eget ligula id magna
-                        fermentum feugiat quis at nunc. Phasellus egestas odio sed hendrerit consectetur. In arcu urna,
-                        vitae massa.</p>
-                </div>
-            </div>
 
-            <button type="submit">Odeslat</button>
-        </form>
-    </div>
-    <div class="WeatherHistory">
-        <canvas class="WeatherHistoryChart" id="weather-history-chart"></canvas>
-    </div>
-</div>
+                <button type="submit">Odeslat</button>
+            </form>
+        </div>
+        <div class="WeatherHistory">
+            <div class="WeatherHistory-chart">
+                <canvas id="weather-history-chart"></canvas>
+            </div>
+            <div class="WeatherHistory-location">
+                <h2 data-location-name>-</h2>
+                <h5 data-location-country>-</h5>
+                <h6 data-location-region>-</h6>
+            </div>
+        </div>
+    </section>
+</main>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js" crossorigin="anonymous"></script>
